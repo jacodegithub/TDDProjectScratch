@@ -16,34 +16,35 @@ public class verifySum {
 		
 		long sum = 0;
 		if(doubleSlach) {
-			String nstr = str.replace("//", "").replace(";", "").replace("\n", "");
-			for(char c : nstr.toCharArray()) {
-				if(Character.getNumericValue(c) < 0) {
-					list.add(Character.getNumericValue(c));
+			String nstr = str.replaceAll("[^-0-9]", ",");
+			for(String s : nstr.split(",")) {
+				if(Integer.parseInt(s) < 0) {
+					list.add(Integer.parseInt(s));
 				}
-				else sum += Character.getNumericValue(c);
+				else sum += Integer.parseInt(s);
 			}
 			if(list.size() == 1) throw new NumberFormatException("Negatives are not allowed");
 			else if(list.size() > 1) throw new NumberFormatException("Negatives are not allowed :"+list);
 		}
 		if(comma && newLineTag) {
-			String nstr = str.replace(",", "").replace("\n", "");
-			for(char c : nstr.toCharArray()) {
-				if(Character.getNumericValue(c) < 0) {
-					list.add(Character.getNumericValue(c));
+//			String nstr = str.replace(",", "").replace("\n", "");
+			String nstr = str.replaceAll("[^-0-9]", ",");
+			for(String s : nstr.split(",")) {
+				if(Integer.parseInt(s) < 0) {
+					list.add(Integer.parseInt(s));
 				}
-				else sum += Character.getNumericValue(c);
+				else sum += Integer.parseInt(s);
 			}
 			if(list.size() == 1) throw new NumberFormatException("Negatives are not allowed");
 			else if(list.size() > 1) throw new NumberFormatException("Negatives are not allowed :"+list);
 		}
 		else if(newLineTag) {
-			String nstr = str.replace("\n", "");
-			for(char c : nstr.toCharArray()) {
-				if(Character.getNumericValue(c) < 0) {
-					list.add(Character.getNumericValue(c));
+			String nstr = str.replaceAll("[^-0-9]", ",");
+			for(String s : nstr.split(",")) {
+				if(Integer.parseInt(s) < 0) {
+					list.add(Integer.parseInt(s));
 				}
-				else sum += Character.getNumericValue(c);
+				else sum += Integer.parseInt(s);
 			}
 			if(list.size() == 1) throw new NumberFormatException("Negatives are not allowed");
 			else if(list.size() > 1) throw new NumberFormatException("Negatives are not allowed :"+list);

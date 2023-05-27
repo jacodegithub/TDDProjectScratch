@@ -56,4 +56,18 @@ class LearningTDD {
 		List<Integer> negNumbers = Arrays.asList(-2,-2,-3,-6);
 		assertEquals(list, negNumbers);
 	}
+	
+	@Test 
+	public void checkForMultipleNegativeWithNewLineNumberInTheString() {
+		verifySum verify = new verifySum();
+		
+		NumberFormatException exception = assertThrows(NumberFormatException.class, 
+				() -> {
+					verify.checkSum("1,-2\n-2,-3,-6,4");
+				});
+		List<Integer> list = verify.getNegativeNumbers(exception);
+		//System.out.println("test "+list);
+		List<Integer> negNumbers = Arrays.asList(-2,-2,-3,-6);
+		assertEquals(list, negNumbers);
+	}
 }
