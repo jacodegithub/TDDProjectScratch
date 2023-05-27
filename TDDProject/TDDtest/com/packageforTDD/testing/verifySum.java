@@ -4,12 +4,25 @@ public class verifySum {
 	public long checkSum(String str) {
 		if(str.isEmpty()) return 0;
 		
+		boolean doubleSlach = str.contains("//");
 		boolean newLineTag = str.contains("\n");
 		boolean comma = str.contains(",");
 		
 		long sum = 0;
+		if(doubleSlach) {
+			String nstr = str.replace("//", "").replace(";", "").replace("\n", "");
+			for(char c : nstr.toCharArray()) {
+				sum += Character.getNumericValue(c);
+			}
+		}
 		if(comma && newLineTag) {
 			String nstr = str.replace(",", "").replace("\n", "");
+			for(char c : nstr.toCharArray()) {
+				sum += Character.getNumericValue(c);
+			}
+		}
+		else if(newLineTag) {
+			String nstr = str.replace("\n", "");
 			for(char c : nstr.toCharArray()) {
 				sum += Character.getNumericValue(c);
 			}

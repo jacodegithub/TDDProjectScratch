@@ -25,5 +25,7 @@ class LearningTDD {
 		verifySum verify = new verifySum();
 		long result = verify.checkSum("1\n2,3");
 		assertEquals(6, result);
+		result = verify.checkSum("2\n4\n1");
+		assertEquals(7, result);
 	}
 }
