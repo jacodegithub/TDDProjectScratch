@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 class LearningTDD {
 	
 	@Test
-	public void checkValidString() {
+	public void checkForEmptyString() {
 		verifySum verify = new verifySum();
-		int result = verify.checkSum("1");
-		assertEquals(result, 1);
+		boolean result = verify.checkSum("");
+		assertFalse(result);
 	}
 	
 	@Test
-	public void checkInValidString() {
+	public void checkVForNonEmptyString() {
 		verifySum verify = new verifySum();
-		int result = verify.checkSum("");
-		assertEquals(result, 0);
+		boolean result = verify.checkSum("\n()+-;1;2");
+		assertTrue(result);
 	}
 }
