@@ -13,37 +13,46 @@ public class verifySum {
 			String nstr = str.replace("//", "").replace(";", "").replace("\n", "");
 			for(char c : nstr.toCharArray()) {
 				if(Character.getNumericValue(c) < 0) {
-					throw new IllegalArgumentException("Negatives are not allowed");
+					cnt++;
+		
 				}
 				sum += Character.getNumericValue(c);
 			}
+			if(cnt == 1) throw new IllegalArgumentException("Negatives are not allowed");
 		}
 		if(comma && newLineTag) {
 			String nstr = str.replace(",", "").replace("\n", "");
 			for(char c : nstr.toCharArray()) {
 				if(Character.getNumericValue(c) < 0) {
+					cnt++;
 					throw new IllegalArgumentException("Negatives are not allowed");
 				}
 				sum += Character.getNumericValue(c);
 			}
+			if(cnt == 1) throw new IllegalArgumentException("Negatives are not allowed");
 		}
 		else if(newLineTag) {
 			String nstr = str.replace("\n", "");
 			for(char c : nstr.toCharArray()) {
 				if(Character.getNumericValue(c) < 0) {
+					cnt++;
 					throw new IllegalArgumentException("Negatives are not allowed");
 				}
 				sum += Character.getNumericValue(c);
 			}
+			if(cnt == 1) throw new IllegalArgumentException("Negatives are not allowed");
 		}
 		else if(comma) {
 			String nstr = str.replace(",", "");
 			for(char c : nstr.toCharArray()) {
 				if(Character.getNumericValue(c) < 0) {
+					cnt++;
+					
 					throw new IllegalArgumentException("Negatives are not allowed");
 				}
 				sum += Character.getNumericValue(c);
 			}
+			if(cnt == 1) throw new IllegalArgumentException("Negatives are not allowed");
 		}
 		
 		return sum;
