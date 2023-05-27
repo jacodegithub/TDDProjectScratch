@@ -9,14 +9,21 @@ class LearningTDD {
 	@Test
 	public void checkForEmptyString() {
 		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("");
-		assertFalse(result);
+		long result = verify.checkSum("");
+		assertEquals(0, result);
+	}	
+
+	@Test
+	public void checkForTheSumOfNumbersInStringSeparatedByComma() {
+		verifySum verify = new verifySum();
+		long result = verify.checkSum("1,2");
+		assertEquals(3, result);
 	}
 	
 	@Test
-	public void checkVForNonEmptyString() {
+	public void checkForTheSumOfNumbersInStringNewLineTag() {
 		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("\n()+-;1;2");
-		assertTrue(result);
+		long result = verify.checkSum("1\n2,3");
+		assertEquals(6, result);
 	}
 }
