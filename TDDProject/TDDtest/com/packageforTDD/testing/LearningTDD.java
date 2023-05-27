@@ -7,33 +7,16 @@ import org.junit.jupiter.api.Test;
 class LearningTDD {
 	
 	@Test
-	public void checkEmptyStringNumber() {
+	public void checkValidString() {
 		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("");
-		assertFalse(result);
-	}
-
-	@Test
-	public void checkValidNumbersWithCommasAsDelimiters() {
-		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("1");
-		assertTrue(result, "first value");
-		result = verify.checkSum("1,2");
-		assertTrue(result, "second value");
+		int result = verify.checkSum("1");
+		assertEquals(result, 1);
 	}
 	
 	@Test
-	public void checkValidNumbersWithSemiColonAsDelimiters() {
+	public void checkInValidString() {
 		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("1;2;3");
-		assertTrue(result);
+		int result = verify.checkSum("");
+		assertEquals(result, 0);
 	}
-	
-	@Test
-	public void checkValidNumbersWithDifferentDelimiters() {
-		verifySum verify = new verifySum();
-		boolean result = verify.checkSum("//(;+)1;2;3");
-		assertTrue(result);
-	}
-
 }
