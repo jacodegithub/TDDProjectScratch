@@ -28,4 +28,15 @@ class LearningTDD {
 		result = verify.checkSum("2\n4\n1");
 		assertEquals(7, result);
 	}
+	
+	@Test 
+	public void checkForTheNegativeNumberInTheString() {
+		verifySum verify = new verifySum();
+		
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+				() -> {
+					verify.checkSum("1,-2,4");
+				});
+		assertEquals("Negatives are not allowed", exception.getMessage());
+	}
 }
